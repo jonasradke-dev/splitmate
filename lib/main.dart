@@ -14,7 +14,7 @@ class SplitMate extends StatelessWidget {
       title: 'SplitMate',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Roboto'),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
