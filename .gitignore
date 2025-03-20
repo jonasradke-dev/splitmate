@@ -50,3 +50,5 @@ ios/Runner.xcodeproj/project.pbxproj
 ios/Runner.xcworkspace
 ios/Flutter/Generated.xcconfig
 ios/Runner.xcodeproj/project.pbxproj
+ios/Runner.xcworkspace
+android/app/google-services.json
