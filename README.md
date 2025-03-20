@@ -134,7 +134,7 @@ SplitMate is licensed under the **MIT License**. See [LICENSE](LICENSE) for more
 
 ## 📩 Contact & Support
 💬 **Jonas Radke**  
-📧 Email: [your-email@example.com](mailto:your-email@example.com)  
+📧 Email: [info@jonasradke.dev](mailto:info@jonasradke.dev)  
 🌐 Portfolio: [jonasradke.dev](https://jonasradke.dev)  
 🐙 GitHub: [jonasradke-dev](https://github.com/jonasradke-dev)
 
