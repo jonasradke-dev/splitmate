@@ -1,36 +1,28 @@
 class SplitmateGroupModel {
-  String GroupName;
-  String GroupId;
-  List<String> GroupMembers;
-  String GroupIcon;
+  final String GroupId;
+  final String GroupName;
+  final List<String> GroupMembers;
+  final String GroupIcon;
 
   SplitmateGroupModel({
-    required this.GroupName,
     required this.GroupId,
+    required this.GroupName,
     required this.GroupMembers,
     required this.GroupIcon,
   });
 
-  static List<SplitmateGroupModel> getGroupList() {
-    return [
-      SplitmateGroupModel(
-        GroupName: 'Group 1',
-        GroupId: '1',
-        GroupMembers: ['User 1', 'User 2', 'User 3'],
-        GroupIcon: 'icon1',
-      ),
-      SplitmateGroupModel(
-        GroupName: 'Group 2',
-        GroupId: '2',
-        GroupMembers: ['User 1', 'User 2', 'User 3'],
-        GroupIcon: 'icon2',
-      ),
-      SplitmateGroupModel(
-        GroupName: 'Group 3',
-        GroupId: '3',
-        GroupMembers: ['User 1', 'User 2', 'User 3'],
-        GroupIcon: 'icon3',
-      ),
-    ];
+  factory SplitmateGroupModel.fromJson(Map<String, dynamic> json) {
+    return SplitmateGroupModel(
+      GroupId: json['_id']?.toString() ?? "",
+      GroupName: json['name'] ?? "Unknown Group",
+      GroupMembers:
+          (json['members'] as List<dynamic>?)
+              ?.map(
+                (member) => member['username']?.toString() ?? "Unknown User",
+              )
+              .toList() ??
+          [],
+      GroupIcon: json['icon'] ?? "❓",
+    );
   }
 }
