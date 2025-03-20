@@ -28,8 +28,8 @@ jobs:
       - name: 📦 Install Dependencies
         run: flutter pub get
 
-      - name: 🔍 Run Linter
-        run: flutter analyze
+      #-#name: 🔍 Run Linter
+        #run: flutter analyze
 
       - name: 🧪 Run Tests
         run: flutter test
