@@ -5,7 +5,7 @@ import '../models/splitmate_group_model.dart';
 import '../models/expense_model.dart';
 
 class ApiService {
-  static const String baseUrl = "http://192.168.178.65:3000";
+  static const String baseUrl = "https://splitmate.jonasradke.dev";
 
   // **🔹 Login Function**
   static Future<String?> login(String email, String password) async {
