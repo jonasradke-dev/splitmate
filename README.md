@@ -33,7 +33,7 @@ SplitMate is a modern expense-sharing app that helps users effortlessly split bi
 
 | Create Group  | Add Expense | Balances |
 |--------------|------------|----------|
-| ![Create Group](https://your-image-url.com/create-group.png) | ![Add Expense](https://your-image-url.com/add-expense.png) | ![Balances](https://your-image-url.com/balances.png) |
+| ![Create Group](https://imgur.com/N94HBVl.png) | ![Add Expense](https://imgur.com/1ZFtS8Z.png) | ![Balances](https://imgur.com/91z8ghZ.png) |
 
 ---
 
