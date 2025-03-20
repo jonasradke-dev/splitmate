@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test Flutter App
+    name: Build and Release Flutter App
     runs-on: ubuntu-latest
 
     steps:
@@ -28,18 +28,8 @@ jobs:
       - name: 📦 Install Dependencies
         run: flutter pub get
 
-      #-#name: 🔍 Run Linter
-        #run: flutter analyze
-
-      
-
-      - name: 📦 Build APK
+      - name: 🏗️ Build APK
         run: flutter build apk --release
-
-      - name: 📦 Build iOS (macOS only)
-        if: runner.os == 'macOS'
-        run: |
-          flutter build ios --release --no-codesign
 
       - name: 📂 Upload APK Artifact
         uses: actions/upload-artifact@v4
@@ -47,9 +37,30 @@ jobs:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
-      - name: 📂 Upload iOS Artifact
-        if: runner.os == 'macOS'
-        uses: actions/upload-artifact@v4
+  release:
+    name: 🚀 Create GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 🛎️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download APK Artifact
+        uses: actions/download-artifact@v4
         with:
-          name: ios-build
-          path: build/ios/iphoneos
+          name: release-apk
+          path: artifacts/
+
+      - name: 🚀 Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: "Release v1.0.${{ github.run_number }}"
+          draft: false
+          prerelease: false
+          files: artifacts/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
