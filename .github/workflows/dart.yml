@@ -54,6 +54,10 @@ jobs:
           name: release-apk
           path: artifacts/
 
+      - name: ✏️ Rename APK
+        run: |
+          mv artifacts/app-release.apk artifacts/splitmate-1.0.${{ github.run_number }}.apk
+
       - name: 🚀 Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -61,6 +65,6 @@ jobs:
           name: "Release v1.0.${{ github.run_number }}"
           draft: false
           prerelease: false
-          files: artifacts/app-release.apk
+          files: artifacts/splitmate-1.0.${{ github.run_number }}.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
